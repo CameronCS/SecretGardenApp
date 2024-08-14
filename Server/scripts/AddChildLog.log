@@ -1,0 +1,11 @@
+LOG 1 CHILD: [PETER BOTHA] {
+    @echo off
+    curl -X POST http://192.168.133.239:3050/add/child -H "Content-Type: multipart/form-data" -F "firstname=Peter" -F "lastname=Botha" -F "classname=Dinosaur Class" -F "parentID1=66bc6c0c1ff989e9aa882ee5" -F "parentID2=N/A" -F "ctx=child" -F "image=@../images/kid1.jpg"
+
+}
+
+LOG 2 CHILD : [JOHN BOTHA] {
+    @echo off
+    curl -X POST http://192.168.133.239:3050/add/child -H "Content-Type: multipart/form-data" -F "firstname=John" -F "lastname=Botha" -F "classname=Butterfly Class" -F "parentID1=66bc6c0c1ff989e9aa882ee5" -F "parentID2=N/A" -F "ctx=child" -F "image=@../images/kid5.jpg"
+
+}

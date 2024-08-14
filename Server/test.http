@@ -1,0 +1,28 @@
+
+
+###
+### LOGIN
+###
+
+POST http://192.168.0.187:3050/user/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "chsteyn",
+    "password": "Password01"
+}
+###
+
+POST http://192.168.0.187:3050/user/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "kabotha",
+    "password": "Password01"
+}
+
+###
+### GET THE CHILD
+###
+GET http://172.20.10.2:3050/user/children/66bbdfde3824a223fbdce1f5 HTTP/1.1
+### http://192.168.0.187:3050/user/children/user._ID

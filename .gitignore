@@ -1,0 +1,44 @@
+##########################
+#                        #
+#     Desktop Ignores    #
+#                        #
+##########################
+
+##########################
+# SecretGardenDesktopApp #
+##########################
+/Desktop/SecretGardenDesktopApp/.vs
+/Desktop/SecretGardenDesktopApp/bin
+/Desktop/SecretGardenDesktopApp/obj
+/Desktop/SecretGardenDesktopApp/TestResults
+
+##########################
+#       APIHandler       #
+##########################
+/Desktop/APIHandler/.vs
+/Desktop/APIHandler/bin
+/Desktop/APIHandler/obj
+/Desktop/APIHandler/TestResults
+
+##########################
+#       APILibTest       #
+##########################
+/Desktop/APILibTests/.vs
+/Desktop/APILibTests/bin
+/Desktop/APILibTests/obj
+
+##########################
+#                        #
+#      Mobile Ignores    #
+#                        #
+##########################
+/Mobile/.expo
+/Mobile/node_modules
+/Mobile/package-lock.json
+
+##########################
+#                        #
+#      Server Ignores    #
+#                        #
+##########################
+/Server/node_modules

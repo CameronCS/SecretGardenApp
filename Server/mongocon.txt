@@ -1,0 +1,1 @@
+mongodb+srv://camcstocks:hyVbk3rRSjfby1Lr@secretgarden.tpkjs.mongodb.net/sgdb?retryWrites=true&w=majority&appName=SecretGarden
