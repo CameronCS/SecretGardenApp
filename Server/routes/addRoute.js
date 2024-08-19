@@ -20,6 +20,8 @@ function getUploadDirectory(ctx) {
             return path.join(baseUploadDir, 'users');
         case 'child':
             return path.join(baseUploadDir, 'children');
+        case 'newsletters': 
+            return path.join(baseUploadDir, 'newsletters')
         default:
             return baseUploadDir;
     }
@@ -75,8 +77,11 @@ const router = express.Router();
 //#endregion
 
 //#region Mongo Schemas
-const User = require("../mods/User");
-const Child = require("../mods/Child");
+const User       = require("../DB/User");
+const Child      = require("../DB/Child");
+const Class      = require("../DB/Class")
+const Newsletter = require("../DB/Newsletter")
+//#endregion
 
 router.get("/", (req, res) => {
     res.send("Hello World Add Router");
@@ -91,11 +96,9 @@ router.post("/user", upload.single("image"), (req, res) => {
             contactno
         } = req.body;
 
-    const baseURLValue = baseURL("a"); // Adjust context as needed
-
+    const baseURLValue = baseURL("c");
     // Format the image path to ensure it is a valid URL
-    // const imagepath = req.file ? baseURLValue + "/uploads/users/" + path.basename(req.file.path) : '';
-    const imagepath = "/uploads/users/" + path.basename(req.file.path);
+    const imagepath = req.file ? baseURLValue + "/uploads/users/" + path.basename(req.file.path) : '';
 
     bcrypt.hash(password, 10)
     .then(hash => {
@@ -140,23 +143,24 @@ router.post("/child", upload.single("image"), (req, res) => {
         classname,
         parentID1,
         parentID2,
+        classId,
     } = req.body;
 
     // Get base URL based on context
     const baseURLValue = baseURL("c"); // Adjust context as needed
 
-    // Format the image path to ensure it is a valid URL
     const imagepath = req.file ? baseURLValue + "/uploads/children/" + path.basename(req.file.path) : '';
-
+    
     const child = new Child({
         imagepath: imagepath,
         firstname: firstname,
-        lastname: lastname,
+        lastname : lastname,
         classname: classname,
         parentID1: parentID1,
-        parentID2: parentID2
+        parentID2: parentID2,
+        classId  : classId
     });
-
+    
     child.save()
     .then(() => {
         res.status(200).json({
@@ -174,5 +178,73 @@ router.post("/child", upload.single("image"), (req, res) => {
         });
     });
 });
+
+router.post("/class", upload.none(),  (req, res) => {
+    const {
+        name,
+        teacher
+    } = req.body;    
+
+    const _class = new Class({
+        name: name,
+        teacher: teacher
+    })
+
+    _class.save()
+    .then(() => {
+        res.status(200).json({
+            code: 200,
+            message: "Class Added",
+            class: _class
+        })
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json({
+            code: 500,
+            message: "Internal Server Error",
+            class: {}
+        })
+    })
+})
+
+router.post("/newsletter", upload.single("image"), (req, res) => {
+    const {
+        title,
+        description,
+        date,
+        classId,
+    } = req.body;
+
+    const baseURLValue = baseURL("c");
+
+    const imagepath = req.file ? baseURLValue + "/uploads/newsletters/" + path.basename(req.file.path) : '';
+
+    const nl = new Newsletter({
+        title: title,
+        description: description,
+        date: date,
+        classId: classId,
+        imageurl: imagepath
+    })
+
+    nl.save()
+    .then(() => {
+        res.status(200).json({
+            code: 200,
+            message: "Newsletter added successfully",
+            newsletter: nl
+        })
+    })
+    .catch(err => {
+        console.log(err);
+        
+        res.status(500).json({
+            code: 500,
+            message: "Internal Server Error",
+            newsletter: {}
+        })
+    })
+})
 
 module.exports = router;

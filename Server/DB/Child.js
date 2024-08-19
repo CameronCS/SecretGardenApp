@@ -5,6 +5,7 @@ const childSchema = mongoose.Schema({
     firstname : { type: String, required: true },
     lastname  : { type: String, required: true },
     classname : { type: String, required: true },
+    classId   : { type: String, required: true },
     parentID1 : { type: String, required: true },
     parentID2 : { type: String, required: false },
 });

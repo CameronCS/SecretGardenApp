@@ -1,7 +1,7 @@
 const express = require("express")
 const bcrypt = require("bcrypt")
-const User = require("../mods/User")
-const Child = require("../mods/Child")
+const User = require("../DB/User")
+const Child = require("../DB/Child")
 
 const router = express.Router()
 
@@ -9,10 +9,6 @@ router.get("/", (req, res) => {
     res.send("Hello User")
 })
 
-// Login Response
-// Code: int
-// Message: String,
-// User: class
 router.post("/login", (req, res) => {
     const { username, password } = req.body
 
@@ -67,7 +63,7 @@ router.post("/login", (req, res) => {
 
 router.get("/children/:pid", (req, res) => {
     const parentID = req.params.pid;
-
+    
     Child.find({
         $or: [
             { parentID1: parentID },
@@ -96,5 +92,34 @@ router.get("/children/:pid", (req, res) => {
     }));
 });
 
+
+router.get("/newsletters/:clid", (req, res) => {
+    const classId = req.params.clid
+
+    Newsletter.find({
+        classId
+    })
+    .then(newsletters => {
+        if (newsletters.length === 0) {
+
+            res.status(404).json({
+                code: 404,
+                message: "No Newsletters found for this class",
+                newsletters: []
+            })
+        } else {
+            res.status(200).json({
+                code: 200,
+                message: "Newsletters found",
+                newsletters: newsletters
+            })
+        }
+    })
+    .catch(err => res.status(500).json({
+        code: 500,
+        message: "Internal Server Error",
+        newsletters: []
+    }))
+});
 
 module.exports = router;

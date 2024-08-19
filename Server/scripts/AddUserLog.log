@@ -1,11 +1,27 @@
-LOG 1 USER: [RILEY REID] {
-    @echo off
-    curl -X POST http://192.168.133.239:3050/add/user -H "Content-Type: multipart/form-data" -F "username=ribotha" -F "firstname=Riley" -F "lastname=Reid" -F "password=Password01" -F "isAdmin=false" -F "contactno=0833031908" -F "ctx=user" -F "image=@../images/user1.jpg"
-
+Log 1 User [Riley Botha] : {
+    curl -X POST http://192.168.0.187:3050/add/user -H "Content-Type: multipart/form-data" -F "username=ribotha" -F "firstname=Riley" -F "lastname=Reid" -F "password=Password01" -F "isAdmin=false" -F "contactno=0833031908" -F "ctx=user" -F "image=@./images/user1.jpg"
+} => Result => {
+    _id       : 66c3a7dfa9080d317e6f9aa6
+    username  : "ribotha"
+    imageurl  : "http://192.168.0.187:3050/uploads/users/1724098527834.jpg"
+    firstname : "Riley"
+    lastname  : "Botha"
+    password  : "$2b$10$9Kl9iCJns2WUW/5odT.qs.2tLeWDZw3fOINZby0orWv23Obny90r."
+    contactno : "0833031908"
+    isAdmin   : false
+    __v       : 0
 }
 
-LOG 2 USER : [CHARLIZE STEYN] {
-    @echo off
-    curl -X POST http://192.168.133.239:3050/add/user -H "Content-Type: multipart/form-data" -F "username=chsteyn" -F "firstname=Charlize" -F "lastname=Steyn" -F "password=Password01" -F "isAdmin=true" -F "ctx=user" -F "contactno=0637999532" -F "image=@../images/admin1.jpg"
-
+Log 2 User [Charlize Steyn] : {
+    curl -X POST http://192.168.0.187:3050/add/user -H "Content-Type: multipart/form-data" -F "username=chsteyn" -F "firstname=Charlize" -F "lastname=Steyn" -F "password=Password01" -F "isAdmin=true" -F "ctx=user" -F "contactno=0637999532" -F "image=@./images/admin1.jpg"
+} => Result => {
+    _id       : 66c3a810a9080d317e6f9aa8
+    username  : "chsteyn"
+    imageurl  : "http://192.168.0.187:3050/uploads/users/1724098576568.jpg"
+    firstname : "Charlize"
+    lastname  : "Steyn"
+    password  : "$2b$10$QKrIz5kxLX5j3RWaAmGRy.G.mRPgrisIDF74JGXah5QavjMu1rAVK"
+    contactno : "0637999532"
+    isAdmin   : true
+    __v       : 0
 }

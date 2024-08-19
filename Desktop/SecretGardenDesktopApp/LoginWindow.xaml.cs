@@ -28,7 +28,7 @@ namespace SecretGardenDesktopApp {
         /// <param name="sender">Object</param>
         /// <param name="e">Mouse Event Args</param>
         private void LblShowPassword_MouseEnter(object sender, MouseEventArgs e) {
-            TBLoginPassword.Text = PBLoginPassword.Password;
+            TBLoginPassword.Text       = PBLoginPassword.Password;
             PBLoginPassword.Visibility = Visibility.Collapsed;
             TBLoginPassword.Visibility = Visibility.Visible;
         }
@@ -39,7 +39,7 @@ namespace SecretGardenDesktopApp {
         /// <param name="sender">Object</param>
         /// <param name="e">Mouse Event Args</param>
         private void LblShowPassword_MouseLeave(object sender, MouseEventArgs e) {
-            PBLoginPassword.Password = TBLoginPassword.Text;
+            PBLoginPassword.Password   = TBLoginPassword.Text;
             TBLoginPassword.Visibility = Visibility.Collapsed;
             PBLoginPassword.Visibility = Visibility.Visible;
         }
@@ -77,6 +77,13 @@ namespace SecretGardenDesktopApp {
 
             // Switch on the response code
             switch (loginResponse.Code) {
+                case (0): { // Code 0 = No connection to server probably a client error but could be server invalid
+                    // Inform the user about the issue
+                    MessageBox.Show(this, "No connection! Please ensure you have internet connection if the problem persists please inform us.", "Connection Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    // Break out of case
+                    break;
+                }
+
                 case 200: { // Code 200 = All is good
                     // Welcome Messagebox
                     MessageBox.Show(this, $"Welcome {loginResponse.User.FirstName} {loginResponse.User.LastName}!", this.Title, MessageBoxButton.OK, MessageBoxImage.Information);

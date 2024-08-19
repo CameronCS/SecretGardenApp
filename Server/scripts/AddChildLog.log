@@ -1,11 +1,27 @@
-LOG 1 CHILD: [PETER BOTHA] {
-    @echo off
-    curl -X POST http://192.168.133.239:3050/add/child -H "Content-Type: multipart/form-data" -F "firstname=Peter" -F "lastname=Botha" -F "classname=Dinosaur Class" -F "parentID1=66bc6c0c1ff989e9aa882ee5" -F "parentID2=N/A" -F "ctx=child" -F "image=@../images/kid1.jpg"
-
+Log 1 Child : [John Botha] {
+    curl -X POST http://192.168.0.187:3050/add/child -H "Content-Type: multipart/form-data" -F "firstname=John" -F "lastname=Botha" -F "classname=Butterfly Class" -F "parentID1=66c3a7dfa9080d317e6f9aa6" -F "parentID2=N/A" -F "classId=66c3a86ea9080d317e6f9aaa" -F "ctx=child" -F "image=@./images/kid5.jpg"
+} => Result => {
+    _id       : 66c3a8c4a9080d317e6f9aae
+    imagepath : "http://192.168.0.187:3050/uploads/children/1724095959154.jpg"
+    firstname : "John"
+    lastname  : "Botha"
+    classname : "Butterfly Class"
+    classId   : "66c3a86ea9080d317e6f9aaa"
+    parentID1 : "66c3a7dfa9080d317e6f9aa6"
+    parentID2 : "N/A"
+    __v       : 0
 }
 
-LOG 2 CHILD : [JOHN BOTHA] {
-    @echo off
-    curl -X POST http://192.168.133.239:3050/add/child -H "Content-Type: multipart/form-data" -F "firstname=John" -F "lastname=Botha" -F "classname=Butterfly Class" -F "parentID1=66bc6c0c1ff989e9aa882ee5" -F "parentID2=N/A" -F "ctx=child" -F "image=@../images/kid5.jpg"
-
+Log 2 Child: [Peter Botha] {
+    curl -X POST http://192.168.0.187:3050/add/child -H "Content-Type: multipart/form-data" -F "firstname=Peter" -F "lastname=Botha" -F "classname=Dinosaur Class" -F "parentID1=66c3a7dfa9080d317e6f9aa6" -F "parentID2=N/A" -F "classId=66c3a87ea9080d317e6f9aac" -F "ctx=child" -F "image=@./images/kid1.jpg"
+}  => Result => {
+    _id       : 66c3a8dfa9080d317e6f9ab0
+    imagepath : "http://192.168.0.187:3050/uploads/children/1724096362423.jpg"
+    firstname : "Peter"
+    lastname  : "Botha"
+    classname : "Dinosaur Class"
+    classId   : "66c3a87ea9080d317e6f9aac"
+    parentID1 : "66c3a7dfa9080d317e6f9aa6"
+    parentID2 : "N/A"
+    __v       : 0
 }

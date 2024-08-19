@@ -26,3 +26,5 @@ Content-Type: application/json
 ###
 GET http://172.20.10.2:3050/user/children/66bbdfde3824a223fbdce1f5 HTTP/1.1
 ### http://192.168.0.187:3050/user/children/user._ID
+
+GET http://192.168.0.187:3050/user/children/66bc6c0c1ff989e9aa882ee5 HTTP/1.1

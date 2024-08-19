@@ -1,0 +1,42 @@
+Log 1 NewLetter [Zoo Field Trip]: {
+    curl http://192.168.0.187:3050/add/newsletter -X POST -H "Content-Type: multipart/form-data" -F "title=Zoo Field Trip" -F "description=We are going to the Zoo! Have everything packed and ready for the field trip along with signed consent forms!" -F "date=2024-09-19" -F "classId=66c3a86ea9080d317e6f9aaa" -F "ctx=newsletters" -F "image=@./images/zoonewsletter.png"
+} => Result => {
+    _id         : 66c3a8fca9080d317e6f9ab2
+    title       : "Zoo Field Trip"
+    description : "We are going to the Zoo! Have everything packed and ready for the field trip along with signed consent forms!"
+    date        : "2024-09-19T00:00:00.000Z"
+    classId     : "66c3a86ea9080d317e6f9aaa"
+    imageurl    : "http://192.168.0.187:3050/uploads/newsletters/1724098812380.png"
+    createdAt   : "2024-08-19T20:20:12.383Z"
+    updatedAt   : "2024-08-19T20:20:12.383Z"
+    __v         : 0
+}
+
+Log 2 NewLetter [Swimming Event]: {
+    curl http://192.168.0.187:3050/add/newsletter -X POST -H "Content-Type: multipart/form-data" -F "title=Swimming Day" -F "description=Swimming Day is coming soon please remember to pack swimming clothes" -F "date=2024-09-12" -F "classId=66c3a86ea9080d317e6f9aaa" -F "ctx=newsletters" -F "image=@./images/swimmingpool.png"
+} => Result => {
+    _id         : 66c3afddaddf00a2c7b8a80b
+    title       : "Swimming Day"
+    description : "Swimming Day is coming soon please remember to pack swimming clothes"
+    date        : "2024-09-12T00:00:00.000Z"
+    classId     : "66c3a86ea9080d317e6f9aaa"
+    imageurl    : "http://192.168.0.187:3050/uploads/newsletters/1724100573417.png"
+    createdAt   : "2024-08-19T20:49:33.429Z"
+    updatedAt   : "2024-08-19T20:49:33.429Z"
+    __v         : 0
+}
+
+Log 3 NewLetter [Art Classes]: {
+    curl http://192.168.0.187:3050/add/newsletter -X POST -H "Content-Type: multipart/form-data" -F "title=Art Class" -F "description=It is time to teach the children to Art! Please pack old clothes for the art day!" -F "date=2024-09-22" -F "classId=66c3a87ea9080d317e6f9aac" -F "ctx=newsletters" -F "image=@./images/swimmingpool.png"
+} => Result => {
+    _id         : 66c3b0b9addf00a2c7b8a80d
+    title       : "Art Class"
+    description : "It is time to teach the children to Art! Please pack old clothes for the art day!"
+    date        : "2024-09-22T00:00:00.000Z"
+    classId     : "66c3a87ea9080d317e6f9aac"
+    imageurl    : "http://192.168.0.187:3050/uploads/newsletters/1724100793443.png"
+    createdAt   : "2024-08-19T20:53:13.447Z"
+    updatedAt   : "2024-08-19T20:53:13.447Z"
+    __v :0
+}
+    

@@ -6,7 +6,62 @@
         xmlns:local="clr-namespace:SecretGardenDesktopApp"
         mc:Ignorable="d"
         Title="UserWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid
+        Background="#F6A1F8"    
+    >
+        <TabControl 
+            Name="TCUMain"
+            Background="#F6A1F8"
+        >
+            <TabItem 
+                Name="TILoading" 
+                Header="Loading Page"
+            >
+                <StackPanel
+                    Background="#F6A1F8"    
+                >
+                    <StackPanel
+                        Name="SPLoadingMainImage"    
+                    >
+                        <Image 
+                            Source="./Resources/Logo.png" 
+                            Width="200" 
+                            Height="200"
+                        />
+                    </StackPanel>
+                    <StackPanel 
+                        Name="SPLoadingMessage"
+                        Orientation="Vertical"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                    >
+                        <TextBlock 
+                            Text="Welcome to the Secret Garden Application" 
+                            FontSize="24"
+                        />
+                        <TextBlock 
+                            Text="Content Is Loading please be patient" 
+                            FontSize="24"
+                        />
+                    </StackPanel>
+                    <StackPanel
+                        x:Name="SPLoadingLB"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                    >
+                        <TextBlock 
+                            Text="Status: "
+                            Margin="10"
+                            FontSize="20"
+                        />
+                        <ProgressBar
+                            Width="500"    
+                            Height="20"
+                            Name="PBLoadIn"
+                        />
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>            
+        </TabControl> 
     </Grid>
 </Window>

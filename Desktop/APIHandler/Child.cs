@@ -36,6 +36,13 @@ namespace APIHandler {
             set => this.className = value;
         }
 
+        private string classId;
+
+        public string ClassID {
+            get => this.classId;
+            set => this.classId = value;
+        }
+
         private string parentID1;
         public string ParentID1 {
             get => this.parentID1; 

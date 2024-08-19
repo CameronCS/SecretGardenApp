@@ -20,6 +20,9 @@ namespace SecretGardenDesktopApp {
     public partial class UserWindow : Window {
         public UserWindow(User user) {
             InitializeComponent();
+            this.controller = new("http://192.168.0.187:3050");
+            this.user = user;
+            this.LoadAllContent();
         }
     }
 }

@@ -1,0 +1,17 @@
+Log 1 Class [Dinosaur Class]: {
+    curl http://192.168.0.187:3050/add/class -X POST -H "Content-Type: multipart/form-data" -F "name=Dinosaur Class" -F "teacher=Teacher Susan"
+} => Result => {
+    _id     : 66c3a86ea9080d317e6f9aaa
+    name    : "Dinosaur Class"
+    teacher : "Teacher Susan"
+    __v     : 0
+}
+
+Log 2 Class [Butterfly Class]: {
+    curl http://192.168.0.187:3050/add/class -X POST -H "Content-Type: multipart/form-data" -F "name=Butterfly Class" -F "teacher=Teacher Erin"
+} => Result => {
+    _id     : 66c3a87ea9080d317e6f9aac,
+    name    : "Butterfly Class",
+    teacher : "Teacher Erin",
+    __v     : 0
+}

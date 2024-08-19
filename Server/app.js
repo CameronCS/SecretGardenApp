@@ -32,8 +32,8 @@ mongoose.connect(constr)
 //#endregion
 
 //#region Mongo Collections
-const User = require("./mods/User")
-const Child = require("./mods/Child")
+const User = require("./DB/User")
+const Child = require("./DB/Child")
 
 //#region routers
 
